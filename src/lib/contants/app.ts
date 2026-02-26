@@ -1,0 +1,2 @@
+export const APP_NAME:string = process.env.PUBLIC_APP_NAME || "Bookstore";
+export const APP_DESCRIPTION:string = process.env.PUBLIC_APP_DESCRIPTION || "Practical bookstore web application created with next.js";

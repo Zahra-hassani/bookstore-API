@@ -3,6 +3,11 @@ import React from 'react'
 import Author from './Author';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata:Metadata ={
+  title: "All Books"
+}
 
 type Book ={
     id: number,
@@ -18,8 +23,8 @@ type Book ={
 
 async function page() {                                                                                                                                                                                                                                                   
     const response = await fetch("http://localhost:8000/api/book");
-    const data = await response.json();
-    const books:Book[] = data;
+    const data:{data:Book[]} = await response.json();
+    const books = data.data;
   return (
     <div className="flex flex-col gap-6 p-5">
       <h1 className='font-semibold text-2xl'>Latest Arrivals</h1>

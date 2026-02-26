@@ -1,11 +1,13 @@
 import { FacebookIcon, Heart, Share2Icon, TwitterIcon } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react'
 
 type Author = {
     id: number;
     name: string;
     bio: string;
-    nationality: string
+    nationality: string;
+    books: number
 }
 
 async function page({params}:{params:Promise<{id:string}>}) {
@@ -21,6 +23,11 @@ async function page({params}:{params:Promise<{id:string}>}) {
             <h1 className="font-bold text-2xl text-center py-2">{authorInfo.name}</h1>
             <h2 className="text-muted-foreground">{authorInfo.nationality}</h2>
             <p className="text-justify">{authorInfo.bio}</p>
+            <p className="text-justify">Books:  
+              {/* <Link href={`/book?search=${authorInfo.name}`}> */}
+            {authorInfo.books} 
+            {/* </Link> */}
+            </p>
             <div className="flex justify-center items-center gap-3">
                 <Heart className='hover:fill-rose-800 hover:text-transparent hover:animate-in' />
                 <Share2Icon className='hover:fill-accent-foreground hover:animate-in' />
