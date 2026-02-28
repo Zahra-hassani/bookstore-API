@@ -11,13 +11,13 @@ function Theme() {
     useEffect(()=>{
       setMounted(true);
     },[]);
-    if(mounted){
+    if(!mounted){
       return;
     }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className='focus-visible:ring-0 focus-visible:ring-offset-0'>
-         <Button variant="ghost" className=''>
+         <Button className='h-9 w-9 rounded-full flex justify-center items-center hover:bg-brand bg-white p-2 font-bold text-brand hover:text-white' variant="ghost">
           {theme==="light"?(<SunIcon />):theme==="dark"?(<MoonIcon />):(<SunMoonIcon />)}
          </Button>
       </DropdownMenuTrigger>

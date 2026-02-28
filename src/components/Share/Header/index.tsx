@@ -12,8 +12,8 @@ const pages=[
         href: "/"
     },
     {
-        title: "Shop",
-        href: "/shop"
+        title: "books",
+        href: "/books"
     },
     {
         title: "About",
@@ -30,7 +30,7 @@ function Header() {
     <div className="w-full flex justify-between items-center h-20 border-b z-50 px-4 bg-white/40 backdrop-blur-md sticky top-0 left-0">
         <div>
             {/* <Image src={} alt='' height={100}  width={100} /> */}
-            <h1 className='font-extralight font-amaranth text-4xl text-brand'>{APP_NAME}</h1>
+            <Link href="/" className='font-extralight font-amaranth text-4xl text-brand'>{APP_NAME}</Link>
         </div>
         <div className='flex justify-between items-center gap-4'>
             {pages.map((page,index) => (
