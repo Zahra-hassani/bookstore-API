@@ -1,3 +1,4 @@
+import { UserCircle2Icon } from 'lucide-react';
 import React from 'react'
 type Member = {
     name : string;
@@ -15,6 +16,7 @@ async function page({params}:{params:Promise<{id:string}>}) {
     <div>
       <div className="w-full max-w-2xl mx-auto">
         <div className="flex flex-col items-center gap-4 p-4 rounded-md">
+            <UserCircle2Icon size={60} />
             <h1 className="font-bold text-2xl py-2 text-center">{memberInfo.name}</h1>
             <h2 className="font-muted-foreground">{memberInfo.email}</h2>
             <div className="flex gap-4 justify-start w-96">
