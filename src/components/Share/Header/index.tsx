@@ -27,7 +27,7 @@ const pages=[
 
 function Header() {
   return (
-    <div className="w-full flex justify-between items-center h-20 border-b z-50 px-4 bg-white/40 backdrop-blur-md sticky top-0 left-0">
+    <div className="w-full flex justify-between items-center h-20 border-b z-30 px-4 bg-white/40 backdrop-blur-md sticky top-0 left-0">
         <div>
             {/* <Image src={} alt='' height={100}  width={100} /> */}
             <Link href="/" className='font-extralight font-amaranth text-4xl text-brand'>{APP_NAME}</Link>
