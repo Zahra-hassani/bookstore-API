@@ -21,7 +21,9 @@ type Book ={
     genre: string
 }
 
-async function page() {                                                                                                                                                                                                                                                   
+async function page({searchParams}: {searchParams:Promise<{page:string}>}) {
+    const {page} = await searchParams;
+    const currentPage = Number(page);                                                                                                                                                                                                                                              
     const response = await fetch("http://localhost:8000/api/book");
     const data:{data:Book[]} = await response.json();
     const books = data.data;
