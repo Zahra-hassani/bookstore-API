@@ -23,8 +23,9 @@ type Book ={
 
 async function page({searchParams}: {searchParams:Promise<{page:string}>}) {
     const {page} = await searchParams;
-    const currentPage = Number(page);                                                                                                                                                                                                                                              
-    const response = await fetch("http://localhost:8000/api/book");
+    const currentPage = Number(page) || 1;
+    const URL = currentPage >1? "http://localhost:8000/api/book?page=2":"http://localhost:8000/api/book";                                                                                                                                                                                                           
+    const response = await fetch(URL);
     const data:{data:Book[]} = await response.json();
     const books = data.data;
   return (
@@ -45,6 +46,10 @@ async function page({searchParams}: {searchParams:Promise<{page:string}>}) {
         </div>
         </Link>
       ))}
+    </div>
+    <div className='w-full flex justify-center items-center gap-3'>
+      <Link href="/books" className='bg-brand text-white px-5 py-2 rounded dark:text-black'>first page</Link>
+      <Link href="/books?page=2" className='bg-brand text-white px-5 py-2 rounded dark:text-black'>last page</Link>
     </div>
     </div>
   )

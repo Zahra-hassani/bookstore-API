@@ -13,19 +13,19 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "pictures.abebooks.com",
+        hostname: "encrypted-tbn0.gstatic.com",
         port: "",
         pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "images.moviesanywhere.com",
+        hostname: "m.media-amazon.com",
         port: "",
         pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "static.fnac-static.com",
+        hostname: "images.thalia.media",
         port: "",
         pathname: "/**",
       },
