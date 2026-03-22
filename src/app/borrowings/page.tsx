@@ -18,7 +18,7 @@ type Borrowing = {
 };
 
 async function page() {
-  const response = await fetch("http://localhost:8000/api/borrow");
+  const response = await fetch("http://localhost:8000/api/v2/borrow");
   const data: { data: [Borrowing] } = await response.json();
   const borroingInfo = data.data;
   return (

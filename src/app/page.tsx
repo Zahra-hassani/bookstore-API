@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      {/* <Hero /> */}
+      <Hero />
       <h1 className="text-brand font-bold font-amaranth ">{APP_NAME}</h1>
     </div>
   );
