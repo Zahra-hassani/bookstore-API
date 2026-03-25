@@ -46,36 +46,38 @@ const settings: Settings = {
 
 function Hero() {
   return (
-    <div className="h-96 w-full">
-      <Slider {...settings}>
-        <div>
-          <Image
-            className="h-full w-full"
-            src="/images/slide-1.jpg"
-            alt="slide-1"
-            height={1000}
-            width={1000}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-full w-full"
-            src="/images/slide-2.jpg"
-            alt="slide-1"
-            height={1000}
-            width={1000}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-full w-full"
-            src="/images/slide-3.jpg"
-            alt="slide-1"
-            height={1000}
-            width={1000}
-          />
-        </div>
-      </Slider>
+    <div className="h-screen overflow-y-hidden max-h-120 w-full">
+      <div className="h-full">
+        <Slider {...settings}>
+          <div>
+            <Image
+              className="object-cover w-full"
+              src="/images/slide-1.jpg"
+              alt="slide-1"
+              height={1000}
+              width={1000}
+            />
+          </div>
+          <div>
+            <Image
+              className="object-cover w-full"
+              src="/images/slide-2.jpg"
+              alt="slide-1"
+              height={1000}
+              width={1000}
+            />
+          </div>
+          <div>
+            <Image
+              className=" object-cover w-full"
+              src="/images/slide-3.jpg"
+              alt="slide-1"
+              height={1000}
+              width={1000}
+            />
+          </div>
+        </Slider>
+      </div>
     </div>
   );
 }

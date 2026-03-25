@@ -35,9 +35,11 @@ async function page({
   const currentPage = Number(page) || 1;
   const URL =
     currentPage > 1
-      ? "http://localhost:8000/api/v2/book?page=2"
+      ? `http://localhost:8000/api/v2/book?page=${currentPage}`
       : "http://localhost:8000/api/v2/book";
   const response = await fetch(URL);
+  // const contentType = response.headers.get("content-type");
+  // console.log(contentType);
   const data: { data: Book[] } = await response.json();
   const books = data.data;
   console.log(books);
@@ -66,9 +68,7 @@ async function page({
             <Badge variant="outline" className="mx-3">
               {book.genre}
             </Badge>
-            <div className="absolute top-0 left-0 h-0 group-hover:h-fit w-full flex flex-col items-end gap-2.5 p-4">
-              {/* icons */}
-            </div>
+            <div className="absolute top-0 left-0 h-0 group-hover:h-fit w-full flex flex-col items-end gap-2.5 p-4"></div>
           </Link>
         ))}
       </div>
