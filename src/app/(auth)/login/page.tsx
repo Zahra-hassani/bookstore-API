@@ -8,7 +8,7 @@ function page() {
   return (
     <div className="h-screen w-full flex relative justify-center items-center">
       <Image
-        src="/login.jpg"
+        src="/log.jpg"
         alt="Image"
         height={500}
         width={500}
