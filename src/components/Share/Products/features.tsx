@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function SampleProducts() {
+function Features() {
   return (
     <div className="flex flex-col items-center gap-4 w-full max-w-6xl">
       <h3 className="font-bold text-center text-3xl">Our Featured Products</h3>
@@ -36,4 +36,4 @@ function SampleProducts() {
   );
 }
 
-export default SampleProducts;
+export default Features;
