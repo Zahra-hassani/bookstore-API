@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title: "All Books",
 };
 
+type Data = {
+  data: [Book];
+  meta: {
+    from: number;
+    last_page: number;
+  };
+};
+
 type Book = {
   id: number;
   title: string;
@@ -40,51 +48,55 @@ async function page({
   const response = await fetch(URL);
   // const contentType = response.headers.get("content-type");
   // console.log(contentType);
-  const data: { data: Book[] } = await response.json();
+  const data: Data = await response.json();
   const books = data.data;
-  console.log(books);
+  // console.log(books);
+  // const pages =
   return (
     <div className="flex flex-col gap-6 p-5">
       <h1 className="font-semibold text-2xl px-2 lg:px-3">Latest Arrivals</h1>
       <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 px-4">
-        {books.map((book, index) => (
+        {books.map((book) => (
           <Link
-            href={`/books/${book.id}`}
-            key={index}
-            className="h-110 space-y-3 pb-3 border group relative rounded"
+            key={book.id}
+            href={`book/${book.title}`}
+            className="p-4 rounded-md h-full w-full"
           >
             <Image
               src={book.cover_image}
-              className="h-70 rounded-t w-full"
-              alt="Book image"
-              height={100}
-              width={100}
+              alt="book"
+              height={1000}
+              width={1000}
+              className="h-64 w-full rounded-md"
             />
-            <h1 className="font-bold text-xl px-3">{book.title}</h1>
-            <div className="w-full px-3 flex justify-between items-center">
-              <Author id={book.author_id} />
-              <p>{book.price}</p>
+            <h1 className="font-semibold">{book.title}</h1>
+            <div className="flex items-center justify-between">
+              <p className="text-xs">{book.author.name}</p>
+              <Badge variant="outline">{book.genre}</Badge>
             </div>
-            <Badge variant="outline" className="mx-3">
-              {book.genre}
-            </Badge>
-            <div className="absolute top-0 left-0 h-0 group-hover:h-fit w-full flex flex-col items-end gap-2.5 p-4"></div>
           </Link>
         ))}
       </div>
       <div className="w-full flex justify-center items-center gap-3">
-        <Link
-          href="/books"
-          className="bg-brand text-white px-5 py-2 rounded dark:text-black"
-        >
-          first page
-        </Link>
-        <Link
-          href="/books?page=2"
-          className="bg-brand text-white px-5 py-2 rounded dark:text-black"
-        >
-          last page
-        </Link>
+        {currentPage < data.meta.from && (
+          <Link
+            href={`/books?page=${Number(currentPage - 1)}`}
+            className="bg-brand text-white px-5 py-2 rounded dark:text-black"
+          >
+            Previous
+          </Link>
+        )}
+        <div className="flex justify-between items-center gap-2">
+          {/* {pages should add} */}
+        </div>
+        {currentPage < data.meta.last_page && (
+          <Link
+            href={`/books?page=${Number(currentPage + 1)}`}
+            className="bg-brand text-white px-5 py-2 rounded dark:text-black"
+          >
+            Next
+          </Link>
+        )}
       </div>
     </div>
   );
