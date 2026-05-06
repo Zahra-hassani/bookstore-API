@@ -4,10 +4,26 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --animate-ins: insta 1s 1 linear;
+  @keyframes insta {
+    0% {
+      color: transparent;
+      background-image: conic-gradient(from 45deg, orange, yellow, hotpink);
+      background-clip: text;
+    }
+    100% {
+      color: transparent;
+      background-image: conic-gradient(from 45deg, orange, yellow, hotpink);
+      background-clip: text;
+    }
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand: #00C2BA;
+  --color-brand: #00c2ba;
   --font-sans: var(--font-geist-sans);
   --font-amaranth: var(--font-amaranth);
   --font-mono: var(--font-geist-mono);

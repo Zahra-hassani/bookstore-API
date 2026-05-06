@@ -1,5 +1,6 @@
 import ShareHero from "@/components/ShareHero";
 import { GithubIcon, LinkedinIcon, Mail } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 function page() {
@@ -9,7 +10,15 @@ function page() {
       <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-6xl mx-auto p-4">
         <div className="w-full relative flex justify-center items-center">
           {/* image */}
-          <div className="h-46 w-46 rounded-full bg-conic-60 from-brand via-blue-600 to-brand shadow-[0_0_2px_black]"></div>
+          <Image
+            src="/images/me.png"
+            alt=""
+            height={1000}
+            width={1000}
+            priority={true}
+            className="rounded-full h-56 w-56"
+          />
+          <div className="h-56 w-56 absolute top-[50%] left-[50%] -translate-[50%] -z-30 rounded-full  shadow-[0_0_2px_black]"></div>
         </div>
         <div className="w-full flex flex-col items-center">
           {/* details */}

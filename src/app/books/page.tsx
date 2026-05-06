@@ -14,6 +14,7 @@ type Data = {
   meta: {
     from: number;
     last_page: number;
+    links: {}[];
   };
 };
 
@@ -77,26 +78,16 @@ async function page({
           </Link>
         ))}
       </div>
-      <div className="w-full flex justify-center items-center gap-3">
-        {currentPage < data.meta.from && (
+      {/* pagination */}
+      <div className="w-full max-w-sm mx-auto overflow-auto flex justify-center items-center gap-3">
+        {data.meta.links?.map((link: any) => (
           <Link
-            href={`/books?page=${Number(currentPage - 1)}`}
-            className="bg-brand text-white px-5 py-2 rounded dark:text-black"
-          >
-            Previous
-          </Link>
-        )}
-        <div className="flex justify-between items-center gap-2">
-          {/* {pages should add} */}
-        </div>
-        {currentPage < data.meta.last_page && (
-          <Link
-            href={`/books?page=${Number(currentPage + 1)}`}
-            className="bg-brand text-white px-5 py-2 rounded dark:text-black"
-          >
-            Next
-          </Link>
-        )}
+            key={link.label}
+            href={`/books?page=${link.page}`}
+            dangerouslySetInnerHTML={{ __html: link.label }}
+            className="bg-brand py-1 hover:bg-white hover:text-brand px-3 transition-all text-white font-bold rounded-full"
+          />
+        ))}
       </div>
     </div>
   );
