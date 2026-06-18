@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <h1 className="text-brand font-bold font-amaranth ">{APP_NAME}</h1>
+      {/* <h1 className="text-brand font-bold font-amaranth ">{APP_NAME}</h1> */}
       <SampleBooks limit={4} />
     </div>
   );

@@ -27,18 +27,18 @@ function page() {
             Start your new journey with different books!
           </p>
           <div className="flex flex-col w-full gap-2">
-            <label htmlFor="username">Name</label>
-            <input
-              type="text"
-              id="username"
-              className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
-            />
-          </div>
-          <div className="flex flex-col w-full gap-2">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
+              className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
+            />
+          </div>
+          <div className="flex flex-col w-full gap-2">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
               className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
             />
           </div>

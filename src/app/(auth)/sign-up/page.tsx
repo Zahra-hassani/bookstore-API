@@ -21,12 +21,12 @@ function page() {
           action=""
         >
           <h1 className="font-amaranth text-center font-bold text-4xl text-brand">
-            {APP_NAME}
+            Welcome to {APP_NAME}!
           </h1>
-          <p className="text-center">
+          <p className="text-center text-muted-foreground text-sm">
             Start your new journey with different books!
           </p>
-          <div className="flex flex-col w-full gap-2">
+          <div className="grid w-full gap-2">
             <label htmlFor="username">Name</label>
             <input
               type="text"
@@ -34,11 +34,27 @@ function page() {
               className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
             />
           </div>
-          <div className="flex flex-col w-full gap-2">
+          <div className="grid w-full gap-2">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
+              className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
+            />
+          </div>
+          <div className="grid w-full gap-2">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
+            />
+          </div>
+          <div className="grid w-full gap-2">
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
               className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
             />
           </div>
@@ -47,9 +63,9 @@ function page() {
               Save
             </Button>
           </div>
-          <p className="text-base">
+          <p className="text-base text-center">
             Already have an account?
-            <Link className="hover:text-brand" href="/login">
+            <Link className="hover:text-brand hover:underline" href="/login">
               Login
             </Link>
           </p>

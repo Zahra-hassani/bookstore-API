@@ -19,17 +19,16 @@ const geistMono = Geist_Mono({
 const amaranth = Amaranth({
   variable: "--font-amaranth",
   subsets: ["latin"],
-  weight: "400"
+  weight: "400",
 });
 
 export const metadata: Metadata = {
   title: {
     template: `%s | ${APP_NAME}`,
-    default: `${APP_NAME}`
+    default: `${APP_NAME}`,
   },
   description: `${APP_DESCRIPTION}`,
 };
-
 
 export default function RootLayout({
   children,
@@ -41,14 +40,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${amaranth.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute='class'
-        enableSystem
-        defaultTheme="light"
-        disableTransitionOnChange
+        <ThemeProvider
+          attribute="class"
+          enableSystem
+          defaultTheme="light"
+          disableTransitionOnChange
         >
           <Header />
-        {children}
-        <Footer />
+          {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
