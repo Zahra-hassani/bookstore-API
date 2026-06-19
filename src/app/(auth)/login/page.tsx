@@ -21,16 +21,17 @@ function page() {
           action=""
         >
           <h1 className="font-amaranth text-center font-bold text-4xl text-brand">
-            {APP_NAME}
+            Welcome Back
           </h1>
-          <p className="text-center">
-            Start your new journey with different books!
+          <p className="text-center text-sm text-muted-foreground">
+            Login and continue Your study.
           </p>
           <div className="flex flex-col w-full gap-2">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
+              name="email"
               className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
             />
           </div>
@@ -39,6 +40,7 @@ function page() {
             <input
               type="password"
               id="password"
+              name="password"
               className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
             />
           </div>

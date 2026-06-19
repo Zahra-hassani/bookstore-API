@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Theme from "./Theme";
+import UserButton from "./user-button";
 
 const pages = [
   {
@@ -58,6 +59,7 @@ function Header() {
         >
           <ShoppingCartIcon size={22} className="text-brand hover:text-white" />
         </Link>
+        <UserButton />
         <Theme />
       </div>
     </div>

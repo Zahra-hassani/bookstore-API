@@ -6,10 +6,11 @@ export async function signUp(prevState: unknown, formData: FormData) {
     if (password !== confirmPassword) {
       return {
         success: false,
+        user: null,
         message: "Passwords does not matched",
       };
     }
-    const data = await fetch(`http:localhost:8000/api/register`, {
+    const data = await fetch(`http://localhost:8000/api/register`, {
       headers: {
         accept: "application/json",
       },
@@ -17,13 +18,16 @@ export async function signUp(prevState: unknown, formData: FormData) {
       body: formData,
     });
     const response = await data.json();
+    // console.log(response);
     return {
       success: true,
-      message: response,
+      user: response.user,
+      message: response.message,
     };
   } catch (err) {
     return {
       success: false,
+      user: null,
       message: "Something went wrong",
     };
   }
