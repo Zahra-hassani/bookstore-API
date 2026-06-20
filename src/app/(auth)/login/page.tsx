@@ -1,10 +1,25 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/contants/app";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useActionState } from "react";
+import { login } from "../../../../actions/auth.action";
+import { useRouter } from "next/navigation";
 
 function page() {
+  const router = useRouter();
+  const [data, action, pending] = useActionState(login, {
+    success: false,
+    message: "",
+    user: null,
+  });
+  if (data.success) {
+    localStorage.setItem("message", data.message);
+    localStorage.setItem("username", data.user.name);
+    localStorage.setItem("email", data.user.email);
+    router.push("/");
+  }
   return (
     <div className="h-screen w-full flex relative justify-center items-center">
       <Image
@@ -18,7 +33,7 @@ function page() {
       <div className="h-fit w-1/3 flex flex-col items-center gap-4">
         <form
           className="flex w-full flex-col gap-3 p-4 rounded-md border border-brand/25 bg-white/50 dark:bg-black/35 backdrop-blur-md dark:text-white"
-          action=""
+          action={action}
         >
           <h1 className="font-amaranth text-center font-bold text-4xl text-brand">
             Welcome Back
@@ -33,7 +48,13 @@ function page() {
               id="email"
               name="email"
               className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
+              required
             />
+            {!data.success && (
+              <div className="text-destructive text-sm">
+                <span>{data.message}</span>
+              </div>
+            )}
           </div>
           <div className="flex flex-col w-full gap-2">
             <label htmlFor="password">Password</label>
@@ -42,16 +63,17 @@ function page() {
               id="password"
               name="password"
               className="border rounded-md px-3 py-1 dark:border-white focus:outline-0"
+              required
             />
           </div>
           <div className="w-full">
-            <Button className="w-full" type="submit">
-              Submit
+            <Button disabled={pending} className="w-full" type="submit">
+              {pending ? "Please wait..." : "Login"}
             </Button>
           </div>
           <p className="text-base">
             Don't have an account?
-            <Link className="hover:text-brand" href="/sign-up">
+            <Link className="hover:text-brand underline" href="/sign-up">
               Create one
             </Link>
           </p>

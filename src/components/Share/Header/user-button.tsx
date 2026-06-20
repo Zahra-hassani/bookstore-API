@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   CircleUser,
+  LogIn,
   User,
   UserCircle2,
   UserCircle2Icon,
@@ -24,12 +25,16 @@ type User = {
 function UserButton() {
   const router = useRouter();
   function LogOutUser() {
+    localStorage.removeItem("token");
     localStorage.removeItem("username");
     localStorage.removeItem("email");
     router.push("/");
   }
+  useEffect(() => {}, []);
+  // if (localStorage.getItem("username") && localStorage.getItem("email"))
   const userName = localStorage.getItem("username");
   const email = localStorage.getItem("email");
+
   if (userName !== null && email !== null) {
     return (
       <div className="flex gap-2">
@@ -40,7 +45,7 @@ function UserButton() {
           >
             <Button
               variant="ghost"
-              className="text-brand hover:text-brand font-bold rounded-full"
+              className="text-brand bg-white hover:bg-brand hover:text-white px-3 py-3.5 text-lg font-normal rounded-full"
             >
               {userName.slice(0, 1).toUpperCase()}
             </Button>
@@ -70,10 +75,7 @@ function UserButton() {
           className="h-9 w-9 rounded-full flex justify-center items-center group hover:bg-brand bg-white p-2 font-bold"
         >
           <Link href="/login">
-            <UserCircle2
-              size={26}
-              className="text-brand group-hover:text-white"
-            />
+            <LogIn size={22} className="text-brand group-hover:text-white" />
           </Link>
         </div>
         <div

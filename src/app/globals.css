@@ -4,8 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* @theme {
-  --animate-ins: insta 1s 1 linear;
+@theme {
+  --animate-insta: insta 1s 1 linear;
   @keyframes insta {
     0% {
       color: transparent;
@@ -18,7 +18,7 @@
       background-clip: text;
     }
   }
-} */
+}
 
 @theme inline {
   --color-background: var(--background);

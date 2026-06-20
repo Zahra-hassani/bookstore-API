@@ -11,7 +11,7 @@ function page() {
         <div className="w-full relative flex justify-center items-center">
           {/* image */}
           <Image
-            src="/images/z.png"
+            src="/images/s.jpg"
             alt=""
             height={1000}
             width={1000}

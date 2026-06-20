@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+// import "/globals.css";
 import Header from "@/components/Share/Header";
 import Footer from "@/components/footer";
 import { APP_DESCRIPTION, APP_NAME } from "@/lib/contants/app";

@@ -32,3 +32,28 @@ export async function signUp(prevState: unknown, formData: FormData) {
     };
   }
 }
+
+export async function login(prevState: unknown, formData: FormData) {
+  try {
+    const data = await fetch(`http://localhost:8000/api/login`, {
+      headers: {
+        accept: "application/json",
+      },
+      method: "POST",
+      body: formData,
+    });
+    const response = await data.json();
+    console.log(response);
+    return {
+      success: true,
+      message: response.message,
+      user: response.user,
+    };
+  } catch (err) {
+    return {
+      success: false,
+      message: "Something went wrong",
+      user: null,
+    };
+  }
+}
