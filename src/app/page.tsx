@@ -8,7 +8,7 @@ export default function Home() {
     <div>
       <Hero />
       {/* <h1 className="text-brand font-bold font-amaranth ">{APP_NAME}</h1> */}
-      <SampleBooks limit={4} />
+      <SampleBooks limit={3} />
     </div>
   );
 }

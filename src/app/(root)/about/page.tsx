@@ -1,7 +1,12 @@
 import ShareHero from "@/components/ShareHero";
 import { GithubIcon, LinkedinIcon, Mail } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "About Us",
+};
 
 function page() {
   return (

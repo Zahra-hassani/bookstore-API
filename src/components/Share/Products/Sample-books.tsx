@@ -10,21 +10,21 @@ async function SampleBooks({ limit }: { limit: number }) {
   const books = await sampleBooks();
   console.log(books);
   return (
-    <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-3 p-3">
+    <div className="w-full mx-auto max-w-5xl flex flex-col items-center gap-3  py-8">
       <h1 className="font-bold font-amaranth text-center text-xl md:text-3xl relative after:content-[''] after:h-px after:w-32 after:bg-brand after:absolute after:top-[50%] after:-left-40 before:content-[''] before:h-px before:w-32 before:bg-brand before:absolute before:top-[50%] before:-right-40">
         Most Famous Books
       </h1>
       <p className="text-center font-light">
         Read our famoust and foreign novel books.
       </p>
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {books.data.slice(0, limit).map((book: any) => (
           <Link href={`/books/${book.id}`} key={book.id}>
             <Card>
-              <CardHeader className="h-fit w-full">
+              <CardHeader className="h-full">
                 <Image
                   src={book.cover_image}
-                  alt={book.title}
+                  alt={book.genre}
                   height={100}
                   width={100}
                   className="object-cover h-80 w-full rounded-md"

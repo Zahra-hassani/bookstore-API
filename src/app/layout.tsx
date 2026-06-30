@@ -46,9 +46,7 @@ export default function RootLayout({
           defaultTheme="light"
           disableTransitionOnChange
         >
-          <Header />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

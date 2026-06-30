@@ -1,16 +1,5 @@
-import type { Metadata } from "next";
-// import "/globals.css";
-import Header from "@/components/Share/Header";
 import Footer from "@/components/footer";
-import { APP_DESCRIPTION, APP_NAME } from "@/lib/contants/app";
-
-export const metadata: Metadata = {
-  title: {
-    template: `%s | ${APP_NAME}`,
-    default: `${APP_NAME}`,
-  },
-  description: `${APP_DESCRIPTION}`,
-};
+import Header from "@/components/Share/Header";
 
 export default function RootLayout({
   children,
@@ -19,7 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Header />
       <body className={` antialiased`}>{children}</body>
+      <Footer />
     </html>
   );
 }
